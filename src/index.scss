@@ -1,0 +1,383 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: 'Roboto';
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  background-color: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@function vw($value, $base: 1920) {
+  @return calc($value / $base) * 100vw;
+}
+
+@function vh($value, $base: 1080) {
+  @return calc($value / $base) * 100vh;
+}
+
+$baseFontSize: 16;
+@function rem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+h1 {
+  font-size: vw(97);
+  font-size: vh(100);
+}
+
+.form {
+  margin-top: 50px;
+  max-width: 962px;
+
+  text-align: center;
+}
+
+.form__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  background: #5c87db;
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 30px 30px 30px;
+}
+
+.form__input {
+  cursor: pointer;
+  width: 208px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  align-items: center;
+  border: 1px solid #5c87db;
+}
+
+input::-webkit-input-placeholder {
+  color: #b7bac1;
+}
+input:-moz-placeholder {
+  color: #b7bac1;
+}
+
+.form__control {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.button {
+  text-align: right;
+}
+.button__form {
+  cursor: pointer;
+  border-width: 0;
+  margin-top: 25px;
+  margin-right: 30px;
+  padding: 10px 0;
+  width: 158px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  background: #5c87db;
+  border-radius: 10px;
+}
+
+.input-field {
+  height: calc(1.5em + 1rem + 2px);
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  display: block;
+  width: 40%;
+  font-weight: 400;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 2px solid black;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  border-width: thin;
+}
+
+.form__input-data-there::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 51%;
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+.form__input-data-back::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 64.5%;
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+input[type='date']::-webkit-datetime-edit-fields-wrapper {
+  cursor: pointer;
+  position: relative;
+  left: 10%;
+}
+input[type='date']::-webkit-datetime-edit {
+  position: relative;
+  left: 10%;
+}
+
+.header {
+  background: #0f77a0;
+  height: 100px;
+  padding-top: 25px;
+}
+.header__logo {
+  color: #fff;
+  display: flex;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  line-height: 50px;
+  margin-left: 56px;
+}
+.header__logo-brend {
+  color: #fff;
+  padding-right: 20px;
+}
+.header__logo-brend {
+  color: #fff;
+}
+.nav__icons-list {
+  color: #fff;
+}
+.active {
+  color: #e79727;
+}
+.wrapper {
+  margin-top: 50px;
+  margin-bottom: 114px;
+}
+.info {
+}
+.info__wrapper {
+  background: #ffffff;
+  box-shadow: 0px 0px 14px rgba(112, 121, 153, 0.3);
+  border-radius: 15px;
+}
+.info__irrevocable {
+  background: #8ba5d8;
+  border-radius: 15px 0px;
+  position: absolute;
+  padding: 6px 27px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ffffff;
+}
+.block {
+  display: flex;
+}
+.block__img {
+  padding-top: 14px;
+  text-align: center;
+  padding-left: 27px;
+  padding-right: 20px;
+}
+
+.info__wrap {
+  padding-top: 40px;
+}
+
+.block__img__title {
+  padding-top: 8px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #5c5c5c;
+}
+.block__time {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #232323;
+  padding-bottom: 8px;
+}
+
+.block__text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #5c5c5c;
+}
+.block__text_data {
+  font-weight: 400;
+}
+.block__distance {
+  padding-left: 27px;
+  padding-right: 31px;
+}
+.block__img img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.img {
+  padding-left: 31px;
+  margin-bottom: 32px;
+}
+.way {
+  padding-left: 15px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.way__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  color: #b7bac1;
+}
+.way__left {
+  position: absolute;
+  top: -16px;
+  left: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  color: #b7bac1;
+}
+.way__right {
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  color: #b7bac1;
+}
+.block__bag {
+  display: flex;
+}
+.img__bag {
+  width: 20px;
+}
+.img__luggage {
+  padding-left: 10px;
+  width: 30px;
+}
+.block__price {
+  padding-top: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 68px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: center;
+  color: #232323;
+}
+.time {
+  margin-top: 11px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #5c5c5c;
+  display: flex;
+  padding-left: 157px;
+  padding-bottom: 27px;
+}
+.time__info {
+  padding: 8px 25px 9px 17px;
+  background: #ffffff;
+  background: #ffffff;
+  border: 1px solid #b7bac1;
+  border-radius: 10px;
+  margin-right: 17px;
+}
+.time__text {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.time__info_active {
+  color: #232323;
+  background: #dde3ee;
+  border: 1px solid #dde3ee;
+}
+
