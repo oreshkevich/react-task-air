@@ -1,6 +1,6 @@
 import React from 'react';
-import { Form } from './components/Form';
-import { FormTwo } from './components/FormTwo';
+import { Form } from './page/Form';
+import { FormTwo } from './page/FormTwo';
 import { Header } from './components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function App() {
         <main className="container content">
           <Routes>
             <Route path="/" element={<Form />} />
-            <Route path="/info" element={<FormTwo />} />
+            <Route path="/info" element={<FormTwo cards={[]} />} />
           </Routes>
         </main>
       </BrowserRouter>

@@ -1,28 +1,34 @@
 import { useState, useEffect, FocusEvent } from 'react';
+import { IFormCard } from '../interface/IFormCard';
+import { IFormData } from '../interface/IFormData';
+import { FormTwo } from '../page/FormTwo';
 
 export const Form = () => {
   const [firstName, setFirstName] = useState('');
   const [lastCity, setLastCity] = useState('');
   const [thereDate, setThereDate] = useState('');
   const [backDate, setBackDate] = useState('');
-
-  // const validateChange = () => {};
+  const [cards, setCards] = useState<IFormCard[]>([]);
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
+    const newCard = {
+      id: new Date().getTime(),
+      firstName: firstName,
+      lastCity: lastCity,
+      thereDate: thereDate,
+      backDate: backDate,
+    };
+    setCards([...cards, newCard]);
     reset();
   };
+
   const reset = () => {
     setFirstName('');
     setLastCity('');
     setThereDate('');
     setBackDate('');
   };
-
-  // useEffect(() => {
-  //   validateChange();
-  // });
 
   return (
     <form className="form" method="post" noValidate onSubmit={handleSubmit}>
@@ -37,7 +43,6 @@ export const Form = () => {
             name="firstName"
             placeholder="Город вылета"
             value={firstName}
-            // onFocus={(e) => focusHandler(e)}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
@@ -51,7 +56,6 @@ export const Form = () => {
             name="lastCity"
             placeholder="Город прилёта"
             value={lastCity}
-            // onFocus={(e) => focusHandler(e)}
             onChange={(e) => setLastCity(e.target.value)}
           />
         </div>
@@ -63,7 +67,6 @@ export const Form = () => {
             className="form__input  form__input-data-there"
             type="date"
             value={thereDate}
-            // onFocus={(e) => focusHandler(e)}
             name="thereDate"
             onChange={(e) => setThereDate(e.target.value)}
           />
@@ -76,7 +79,6 @@ export const Form = () => {
             className="form__input  form__input-data-back"
             type="date"
             value={backDate}
-            // onFocus={(e) => focusHandler(e)}
             name="backDate"
             onChange={(e) => setBackDate(e.target.value)}
           />
@@ -92,6 +94,9 @@ export const Form = () => {
         >
           Найти билеты
         </button>
+      </div>
+      <div className="card-container">
+        <FormTwo cards={cards} />
       </div>
     </form>
   );

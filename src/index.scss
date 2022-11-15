@@ -259,7 +259,7 @@ input[type='date']::-webkit-datetime-edit {
   padding-top: 40px;
 }
 
-.block__img__title {
+.block__img_title {
   padding-top: 8px;
 
   font-weight: 400;
@@ -320,6 +320,14 @@ input[type='date']::-webkit-datetime-edit {
   text-align: center;
   color: #b7bac1;
 }
+.info {
+  position: relative;
+}
+.block__price_back {
+  position: absolute;
+  top: 107px;
+  right: 30px;
+}
 .way__right {
   position: absolute;
   top: -18px;
@@ -379,5 +387,9 @@ input[type='date']::-webkit-datetime-edit {
   color: #232323;
   background: #dde3ee;
   border: 1px solid #dde3ee;
+}
+
+.info__wrap_back {
+  padding-bottom: 43px;
 }
 
