@@ -1,5 +1,5 @@
-export interface IFormCard {
-  id: number | string;
+export interface ICardData {
+  id: string;
   firstName: string;
   lastCity: string;
   thereDate: string;

@@ -4,7 +4,7 @@ import { IFormCard } from '../interface/IFormCard';
 function Info(props: IFormCard) {
   const [buttonText, setButtonText] = useState('09:20');
   const [buttonTime, setButtonTime] = useState('11:05');
-  const [Dirty, setDirty] = useState('Button1');
+  const [Dirty, setDirty] = useState('button1');
 
   const changeText = (
     text: SetStateAction<string>,
@@ -59,7 +59,7 @@ function Info(props: IFormCard) {
         </div>
         <div className="info__time time">
           <div
-            className={`time__info ${
+            className={`time__info  ${
               Dirty === 'button1' ? 'time__info_active' : ''
             }`}
             onClick={() => changeText('09:20', '11:05', 'button1')}

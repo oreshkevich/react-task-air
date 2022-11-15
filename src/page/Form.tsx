@@ -60,6 +60,27 @@ export const Form = () => {
     setValidDate(isValidDate);
     if (isValid && isValidDate && isValidCity) {
       setDirty(true);
+      fetch(
+        `https://test-react-7a0e5-default-rtdb.europe-west1.firebasedatabase.app/city.json`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: new Date().getTime(),
+            firstName: firstName,
+            lastCity: lastCity,
+            thereDate: thereDate,
+            backDate: backDate,
+          }),
+        }
+      )
+        .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+        .then((data) => {
+          reset();
+        })
+        .catch((err) => console.log(`error: ${err}`));
       const newCard = {
         id: new Date().getTime(),
         firstName: firstName,
