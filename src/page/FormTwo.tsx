@@ -3,9 +3,7 @@ import { InfoBack } from '../components/InfoBack';
 import { ICard } from '../interface/ICard';
 
 function FormTwo(props: ICard) {
-  console.log(props);
   const { cards = [] } = props;
-  console.log(cards);
   if (!cards.length) {
     return <h3>Nothing here</h3>;
   }

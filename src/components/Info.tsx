@@ -1,7 +1,7 @@
 import { IFormCard } from '../interface/IFormCard';
 
 function Info(props: IFormCard) {
-  const { firstName, lastCity, thereDate, backDate } = props;
+  const { firstName, lastCity, thereDate } = props;
   return (
     <div className="info">
       <div className="info__wrapper">
