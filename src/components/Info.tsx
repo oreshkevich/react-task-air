@@ -1,6 +1,21 @@
+import { SetStateAction, useState } from 'react';
 import { IFormCard } from '../interface/IFormCard';
 
 function Info(props: IFormCard) {
+  const [buttonText, setButtonText] = useState('09:20');
+  const [buttonTime, setButtonTime] = useState('11:05');
+  const [Dirty, setDirty] = useState('Button1');
+
+  const changeText = (
+    text: SetStateAction<string>,
+    time: SetStateAction<string>,
+    button: SetStateAction<string>
+  ) => {
+    setButtonText(text);
+    setButtonTime(time);
+    setDirty(button);
+  };
+
   const { firstName, lastCity, thereDate } = props;
   return (
     <div className="info">
@@ -12,7 +27,7 @@ function Info(props: IFormCard) {
             <h3 className="block__img_title">S7 Airlines</h3>
           </div>
           <div className="block__distance">
-            <p className="block__time">09:20</p>
+            <p className="block__time">{buttonText}</p>
             <p className="block__text">{firstName}</p>
             <p className="block__text block__text_data">{thereDate}</p>
           </div>
@@ -24,7 +39,7 @@ function Info(props: IFormCard) {
             <p className="way__text">В пути 1 ч 55 мин</p>
           </div>
           <div className="block__distance">
-            <p className="block__time">11:05</p>
+            <p className="block__time">{buttonTime}</p>
             <p className="block__text">{lastCity}</p>
             <p className="block__text block__text_data">{thereDate}</p>
           </div>
@@ -43,13 +58,28 @@ function Info(props: IFormCard) {
           <div className="block__price">4 150 ₽</div>
         </div>
         <div className="info__time time">
-          <div className="time__info time__info_active">
+          <div
+            className={`time__info ${
+              Dirty === 'button1' ? 'time__info_active' : ''
+            }`}
+            onClick={() => changeText('09:20', '11:05', 'button1')}
+          >
             09:20 - <span className="time__text">11:05</span>{' '}
           </div>
-          <div className="time__info">
+          <div
+            className={`time__info ${
+              Dirty === 'button2' ? 'time__info_active' : ''
+            }`}
+            onClick={() => changeText('10:20', '12:05', 'button2')}
+          >
             10:20 - <span className="time__text">12:05</span>{' '}
           </div>
-          <div className="time__info">
+          <div
+            className={`time__info ${
+              Dirty === 'button3' ? 'time__info_active' : ''
+            }`}
+            onClick={() => changeText('11:20', '13:05', 'button3')}
+          >
             11:20 - <span className="time__text">13:05</span>{' '}
           </div>
         </div>
